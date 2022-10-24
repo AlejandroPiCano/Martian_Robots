@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{5F582F26-A854-4595-9940-876BDAE0F916}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{388D4C0B-2236-450D-A899-DC78DF073C03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{86345EBC-AF84-4EC0-94AB-EE61B0CA8B7C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{E98BC318-C819-4E15-8169-D9E688DB2947}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{C7AB2516-79BD-4F6D-BE13-37D98C48E2F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.API", "API\MartianRobots.API\MartianRobots.API.csproj", "{9F0BF1AB-739F-4C56-A3C8-11DB09962D20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.Application", "Application\MartianRobots.Application\MartianRobots.Application.csproj", "{256A146F-D060-4BA9-B30F-B32F817A2FFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.Domain", "Domain\MartianRobots.Domain\MartianRobots.Domain.csproj", "{FB3D5ED0-9F49-40D0-B636-DD50B938B435}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.Infrastructure", "Infrastructure\MartianRobots.Infrastructure\MartianRobots.Infrastructure.csproj", "{320017DB-66B3-440D-B534-080284D3C3C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.Application.DTOs", "Application\MartianRobots.Application.DTOs\MartianRobots.Application.DTOs.csproj", "{2C69949C-1C48-410E-8747-F64541BDB0C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.Domain.Entities", "Domain\MartianRobots.Domain.Entities\MartianRobots.Domain.Entities.csproj", "{4861667D-F179-40EE-9D68-2CE5C753BBD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.ConsoleApp", "Presentation\MartianRobots.ConsoleApp\MartianRobots.ConsoleApp.csproj", "{65922044-1FA0-4977-A64B-4A316B982938}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F0BF1AB-739F-4C56-A3C8-11DB09962D20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F0BF1AB-739F-4C56-A3C8-11DB09962D20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F0BF1AB-739F-4C56-A3C8-11DB09962D20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F0BF1AB-739F-4C56-A3C8-11DB09962D20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{256A146F-D060-4BA9-B30F-B32F817A2FFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{256A146F-D060-4BA9-B30F-B32F817A2FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{256A146F-D060-4BA9-B30F-B32F817A2FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{256A146F-D060-4BA9-B30F-B32F817A2FFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB3D5ED0-9F49-40D0-B636-DD50B938B435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB3D5ED0-9F49-40D0-B636-DD50B938B435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB3D5ED0-9F49-40D0-B636-DD50B938B435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB3D5ED0-9F49-40D0-B636-DD50B938B435}.Release|Any CPU.Build.0 = Release|Any CPU
+		{320017DB-66B3-440D-B534-080284D3C3C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{320017DB-66B3-440D-B534-080284D3C3C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{320017DB-66B3-440D-B534-080284D3C3C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{320017DB-66B3-440D-B534-080284D3C3C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C69949C-1C48-410E-8747-F64541BDB0C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C69949C-1C48-410E-8747-F64541BDB0C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C69949C-1C48-410E-8747-F64541BDB0C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C69949C-1C48-410E-8747-F64541BDB0C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4861667D-F179-40EE-9D68-2CE5C753BBD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4861667D-F179-40EE-9D68-2CE5C753BBD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4861667D-F179-40EE-9D68-2CE5C753BBD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4861667D-F179-40EE-9D68-2CE5C753BBD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65922044-1FA0-4977-A64B-4A316B982938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65922044-1FA0-4977-A64B-4A316B982938}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65922044-1FA0-4977-A64B-4A316B982938}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65922044-1FA0-4977-A64B-4A316B982938}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9F0BF1AB-739F-4C56-A3C8-11DB09962D20} = {5F582F26-A854-4595-9940-876BDAE0F916}
+		{256A146F-D060-4BA9-B30F-B32F817A2FFD} = {C7AB2516-79BD-4F6D-BE13-37D98C48E2F6}
+		{FB3D5ED0-9F49-40D0-B636-DD50B938B435} = {E98BC318-C819-4E15-8169-D9E688DB2947}
+		{320017DB-66B3-440D-B534-080284D3C3C7} = {86345EBC-AF84-4EC0-94AB-EE61B0CA8B7C}
+		{2C69949C-1C48-410E-8747-F64541BDB0C2} = {C7AB2516-79BD-4F6D-BE13-37D98C48E2F6}
+		{4861667D-F179-40EE-9D68-2CE5C753BBD0} = {E98BC318-C819-4E15-8169-D9E688DB2947}
+		{65922044-1FA0-4977-A64B-4A316B982938} = {388D4C0B-2236-450D-A899-DC78DF073C03}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E231A17-6644-435E-A4E1-601D777ED530}
+	EndGlobalSection
+EndGlobal
