@@ -22,16 +22,38 @@ namespace MartianRobots.API.Controllers
 
         // GET: api/<MartianRobotsInputController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<List<MartianRobotsInputDTO>> Get()
         {
-            return new string[] { "value1", "value2" };
+            List<MartianRobotsInputDTO> result = null;
+
+            try
+            {
+                return await service.GetAllInputsAsync();
+            }
+            catch (System.Exception e)
+            {
+                logger.LogInformation(e.Message);
+            }
+
+            return result;
         }
 
-        // GET api/<MartianRobotsInputController>/5
+        // GET api/<MartianRobotsInputController>/231a3358-12a6-4216-801f-c1fb84882aa9
         [HttpGet("{id}")]
-        public string Get(Guid id)
+        public async Task<MartianRobotsInputDTO> Get(Guid id)
         {
-            return "value";
+            MartianRobotsInputDTO result = null;
+
+            try
+            {
+                return await service.GetInputAsync(id);
+            }
+            catch (System.Exception e)
+            {
+                logger.LogInformation(e.Message);
+            }
+
+            return result;
         }
 
         // POST api/<MartianRobotsInputController>
@@ -54,18 +76,6 @@ namespace MartianRobots.API.Controllers
                     return result;
                 });
             }
-        }
-
-        // PUT api/<MartianRobotsInputController>/5
-        [HttpPut("{id}")]
-        public void Put(Guid id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<MartianRobotsInputController>/5
-        [HttpDelete("{id}")]
-        public void Delete(Guid id)
-        {
-        }
+        }      
     }
 }

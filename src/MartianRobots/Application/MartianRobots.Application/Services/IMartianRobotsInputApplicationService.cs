@@ -17,7 +17,7 @@ namespace MartianRobots.Application.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns>The input</returns>
-        Task<MartianRobotsInputDTO> GetInputAsync(int id);
+        Task<MartianRobotsInputDTO> GetInputAsync(Guid id);
 
         /// <summary>
         /// Get all inputs

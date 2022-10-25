@@ -18,8 +18,4 @@
     <ProjectReference Include="..\MartianRobots.Application.DTOs\MartianRobots.Application.DTOs.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="CQRS\Queries\" />
-  </ItemGroup>
-
 </Project>

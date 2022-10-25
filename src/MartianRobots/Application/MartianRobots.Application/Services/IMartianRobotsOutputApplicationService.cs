@@ -16,7 +16,7 @@ namespace MartianRobots.Application.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<MartianRobotsOutputDTO> GetOutputAsync(int id);
+        Task<MartianRobotsOutputDTO> GetOutputAsync(Guid id);
 
         /// <summary>
         /// Get all outputs

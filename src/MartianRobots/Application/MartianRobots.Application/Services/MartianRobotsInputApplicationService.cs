@@ -3,6 +3,7 @@ using FluentValidation;
 using FluentValidation.Results;
 using MartianRobots.Application.DTOs;
 using MartianRobots.Application.DTOs.Validators;
+using MartianRobots.Application.Query;
 using MartianRobots.Domain.Entities;
 using MartianRobots.Domain.Repository.Contracts;
 using MediatR;
@@ -41,14 +42,14 @@ namespace MartianRobots.Application.Services
             return result;
         }
 
-        public Task<List<MartianRobotsInputDTO>> GetAllInputsAsync()
+        public async Task<List<MartianRobotsInputDTO>> GetAllInputsAsync()
         {
-            throw new NotImplementedException();
+           return await mediator.Send(new GetAllAsyncQuery());
         }
 
-        public Task<MartianRobotsInputDTO> GetInputAsync(int id)
+        public async Task<MartianRobotsInputDTO> GetInputAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await mediator.Send(new GetAsyncQuery(id));
         }
     }
 }
