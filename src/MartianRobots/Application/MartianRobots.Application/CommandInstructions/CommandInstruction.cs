@@ -5,8 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MartianRobots.Application.Commands
+namespace MartianRobots.Application.CommandInstructions
 {
+    /// <summary>
+    /// The command instruction
+    /// </summary>
     public abstract class CommandInstruction
     {
        public abstract void Execute(MartianRobotDTO robot);

@@ -1,7 +1,8 @@
 ﻿using MartianRobots.Application.DTOs;
+using MartianRobots.Application.DTOs.Validators;
 using ValidationResult = FluentValidation.Results.ValidationResult;
 
-namespace MartianRobots.Application
+namespace MartianRobots.Application.Services
 {
     public interface IMartianRobotsInputApplicationService
     {

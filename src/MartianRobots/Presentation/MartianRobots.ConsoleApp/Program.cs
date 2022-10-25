@@ -1,5 +1,6 @@
-﻿using MartianRobots.Application;
-using MartianRobots.Application.DTOs;
+﻿using MartianRobots.Application.DTOs;
+using MartianRobots.Application.DTOs.Validators;
+using MartianRobots.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace MartianRobots.ConsoleApp

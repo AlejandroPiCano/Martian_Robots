@@ -1,6 +1,4 @@
-﻿using MartianRobots.Application.Commands;
-
-namespace MartianRobots.Application
+﻿namespace MartianRobots.Application.CommandInstructions
 {
     internal class CommandInstructionFactory
     {

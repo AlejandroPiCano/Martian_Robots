@@ -1,11 +1,43 @@
-var builder = WebApplication.CreateBuilder(args);
+using FluentValidation;
+using MartianRobots.API.Configurations;
+using MartianRobots.Application.DTOs;
+using MartianRobots.Application.DTOs.Validators;
+using MartianRobots.Application.Services;
+using MartianRobots.Domain.Entities;
+using MartianRobots.Domain.Repository.Contracts;
+using MartianRobots.Infrastructure;
+using MediatR;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Adding Validations
+builder.Services.AddScoped<IValidator<MartianRobotDTO>, MartianRobotDTOValidator>();
+builder.Services.AddScoped<IValidator<MartianRobotsInputDTO>, MartianRobotsInputDTOValidator>();
+
+// Adding Automapper
+builder.Services.AddAutoMapperConfiguration();
+
+//MongoDB
+builder.Services.AddScoped<IRepository<MartianRobotsInput>, MartianRobotInputMongoDBRepository>();
+builder.Services.Configure<MongoDBDatabaseSettings>(builder.Configuration.GetSection(nameof(MongoDBDatabaseSettings)));
+builder.Services.AddSingleton<IMongoDBDatabaseSettings>(sp => sp.GetRequiredService<IOptions<MongoDBDatabaseSettings>>().Value);
+builder.Services.AddSingleton<IMongoClient>(s => new MongoClient(builder.Configuration.GetValue<string>("MongoDBDatabaseSettings:ConnectionString")));
+
+// Add Services
+builder.Services.AddScoped<IMartianRobotsInputApplicationService, MartianRobotsInputApplicationService>();
+builder.Services.AddScoped<IMartianRobotsApplicationService, MartianRobotsApplicationService>();
+
+// Adding MediatR for Domain Events and Notifications
+var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+builder.Services.AddMediatR(assemblies);
 
 var app = builder.Build();
 

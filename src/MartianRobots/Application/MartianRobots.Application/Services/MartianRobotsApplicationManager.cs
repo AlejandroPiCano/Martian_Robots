@@ -1,9 +1,8 @@
-﻿using MartianRobots.Application.Commands;
+﻿using MartianRobots.Application.CommandInstructions;
 using MartianRobots.Application.DTOs;
-using System.Runtime.CompilerServices;
 using ValidationResult = FluentValidation.Results.ValidationResult;
 
-namespace MartianRobots.Application
+namespace MartianRobots.Application.Services
 {
     public class MartianRobotsApplicationService : IMartianRobotsApplicationService
     {
@@ -47,7 +46,7 @@ namespace MartianRobots.Application
         /// <returns>True if the robot is out of the limits, false if not </returns>
         private bool IsOutOfTheLimits(MartianRobotDTO robot, int sizeX, int sizeY)
         {
-            return (robot.InitialX > sizeX || robot.InitialX < 0 || robot.InitialY > sizeY || robot.InitialY < 0);
+            return robot.InitialX > sizeX || robot.InitialX < 0 || robot.InitialY > sizeY || robot.InitialY < 0;
         }
     }
 }

@@ -10,7 +10,6 @@ namespace MartianRobots.Domain.Entities
 
         public char Orientation { get; set; }
 
-        public char Instructions { get; set; }
-
+        public string Instructions { get; set; }
     }
 }

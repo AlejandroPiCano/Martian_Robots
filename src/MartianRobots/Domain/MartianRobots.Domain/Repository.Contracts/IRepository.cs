@@ -11,7 +11,7 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<T> GetAsync(int id);
+        Task<T> GetAsync(Guid id);
               
         /// <summary>
         /// Get all inventory items
@@ -29,12 +29,12 @@
         /// </summary>
         /// <param name="id"></param>
         /// <param name="entity"></param>
-        Task UpdateAsync(int id, T entity);
+        Task UpdateAsync(Guid id, T entity);
                
         /// <summary>
         /// Delete a inventory Item 
         /// </summary>
         /// <param name="id"></param>
-        Task DeleteAsync(int id);
+        Task DeleteAsync(Guid id);
     }
 }

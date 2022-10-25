@@ -1,11 +1,12 @@
-﻿using MartianRobots.Application.DTOs;
+﻿using MartianRobots.Application.CommandInstructions;
+using MartianRobots.Application.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MartianRobots.Application.Commands
+namespace MartianRobots.Application.CommandInstructions
 {
     public class ForwardCommandInstruction : CommandInstruction
     {

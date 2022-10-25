@@ -7,11 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
     <PackageReference Include="FluentValidation" Version="11.2.2" />
+    <PackageReference Include="MediatR" Version="11.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Domain\MartianRobots.Domain.Entities\MartianRobots.Domain.Entities.csproj" />
+    <ProjectReference Include="..\..\Domain\MartianRobots.Domain\MartianRobots.Domain.csproj" />
     <ProjectReference Include="..\MartianRobots.Application.DTOs\MartianRobots.Application.DTOs.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="CQRS\Queries\" />
   </ItemGroup>
 
 </Project>

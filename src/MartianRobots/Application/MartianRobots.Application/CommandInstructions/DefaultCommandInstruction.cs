@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MartianRobots.Application.Commands
+namespace MartianRobots.Application.CommandInstructions
 {
     public class DefaultCommandInstruction : CommandInstruction
     {

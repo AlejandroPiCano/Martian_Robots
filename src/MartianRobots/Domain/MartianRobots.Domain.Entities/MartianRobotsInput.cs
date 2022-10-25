@@ -1,12 +1,13 @@
-﻿using System.Runtime.Serialization;
-
+﻿
 namespace MartianRobots.Domain.Entities
 {
     public class MartianRobotsInput
-    {
-        public int X { get; set; }
+    {       
+        public Guid Id { get; set; }
 
-        public int Y { get; set; }
+        public int XSize { get; set; }
+
+        public int YSize { get; set; }
 
         public List<MartianRobot> Robots { get; set; }
     }
