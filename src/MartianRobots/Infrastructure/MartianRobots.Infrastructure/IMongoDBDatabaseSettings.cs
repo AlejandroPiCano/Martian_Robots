@@ -11,7 +11,9 @@ namespace MartianRobots.Infrastructure
     /// </summary>
     public interface IMongoDBDatabaseSettings
     {
-        public string CollectionName { get; set; }
+        public string CollectionNameInput { get; set; }
+
+        public string CollectionNameOutput { get; set; }
 
         public string ConnectionString { get; set; }
 

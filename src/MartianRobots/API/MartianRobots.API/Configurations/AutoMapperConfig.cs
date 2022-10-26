@@ -24,7 +24,9 @@ namespace MartianRobots.API.Configurations
                 typeof(MartianRobotToMartianRobotDTO),
                 typeof(MartianRobotsInputDTOToMartianRobotsInput),
                 typeof(MartianRobotsInputToMartianRobotsInputDTO),
-                typeof(MartianRobotsInputDTOToMartianRobotsInput)
+                typeof(MartianRobotsInputDTOToMartianRobotsInput),
+                typeof(MartianRobotsOutputDTOToMartianRobotsOutput),
+                typeof(MartianRobotsOutputToMartianRobotsOutputDTO)
                 );
         }
     }

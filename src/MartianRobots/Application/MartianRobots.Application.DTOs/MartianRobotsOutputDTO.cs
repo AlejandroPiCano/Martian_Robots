@@ -5,6 +5,9 @@ namespace MartianRobots.Application.DTOs
     public class MartianRobotsOutputDTO
     {
         [DataMember]
+        public Guid Id { get; set; }
+
+        [DataMember]
         public int FinalX { get; set; }
 
         [DataMember]

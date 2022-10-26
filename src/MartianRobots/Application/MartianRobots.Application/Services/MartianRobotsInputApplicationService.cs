@@ -17,16 +17,12 @@ namespace MartianRobots.Application.Services
 {
     public class MartianRobotsInputApplicationService : IMartianRobotsInputApplicationService
     {
-        IRepository<MartianRobotsInput> repository;
         IValidator<MartianRobotsInputDTO> validator;
-        IMapper mapper;
         IMediator mediator;
 
-        public MartianRobotsInputApplicationService(IRepository<MartianRobotsInput> repository, IValidator<MartianRobotsInputDTO> validator, IMapper mapper, IMediator mediator)
+        public MartianRobotsInputApplicationService(IValidator<MartianRobotsInputDTO> validator, IMediator mediator)
         {
-            this.repository = repository;
             this.validator = validator;
-            this.mapper = mapper;
             this.mediator = mediator;
         }
 

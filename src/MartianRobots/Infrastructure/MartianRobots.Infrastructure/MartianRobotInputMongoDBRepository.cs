@@ -15,7 +15,7 @@ namespace MartianRobots.Infrastructure
         {
             var database = mongoClient.GetDatabase(mongoDBTodosDatabaseSettings.DatabaseName);
             
-            inputs = database.GetCollection<MartianRobotsInput>(mongoDBTodosDatabaseSettings.CollectionName);
+            inputs = database.GetCollection<MartianRobotsInput>(mongoDBTodosDatabaseSettings.CollectionNameInput);
         }
 
         public async Task CreateAsync(MartianRobotsInput entity)
