@@ -19,17 +19,30 @@ namespace MartianRobots.ConsoleApp
                 .AddScoped<IInputService, JsonInputService>()// Or ConsoleInputService
                 .AddScoped<IOutputService, OutputService>()
                 .AddScoped<ISolveService, APISolveService>()// Or ApplicationLibrarySolveService
+                .AddScoped<IOutputSaveService, OutputSaveService>()
+                .AddScoped<IInputSaveService, InputSaveService>()
                 .BuildServiceProvider();
 
             var inputService = serviceProvider.GetService<IInputService>();
             var outputService = serviceProvider.GetService<IOutputService>();
             var solveService = serviceProvider.GetService<ISolveService>();
+            var inputSaveService = serviceProvider.GetService<IInputSaveService>();
+            var outputSaveService = serviceProvider.GetService<IOutputSaveService>();
 
             // Get the input
             MartianRobotsInputDTO input = inputService.GetInput();
 
+            // Save the input
+            inputSaveService.CreateAsyncInput(input);
+
             // Get the solution
             List<MartianRobotsOutputDTO> result = await solveService.Solve(input);
+
+            // Save the output
+            foreach (var output in result)
+            {
+                outputSaveService.CreateAsynOutput(output);
+            }
 
             // Print the output.
             outputService.PrintOutput(result);
