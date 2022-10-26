@@ -2,32 +2,62 @@
 using MartianRobots.Application.DTOs.Validators;
 using MartianRobots.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
+using System.Text;
 
 namespace MartianRobots.ConsoleApp
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            var serviceProvider = new ServiceCollection()
-            .AddScoped<IMartianRobotsApplicationService, MartianRobotsApplicationService>()
-            .BuildServiceProvider();
+            MartianRobotsInputDTO input = GetInputFromJsonFile();
+            List<MartianRobotsOutputDTO> result = new List<MartianRobotsOutputDTO>();
 
-            //do the actual work here
-            MartianRobotsInputDTO input = GetInput();
-            var martianRobotsService = serviceProvider.GetService<IMartianRobotsApplicationService>();
+            #region Library call
+            //TODO: Uncomment this for use the Application libraries
+            //var serviceProvider = new ServiceCollection()
+            //.AddScoped<IMartianRobotsApplicationService, MartianRobotsApplicationService>()
+            //.BuildServiceProvider();
 
-            var result = martianRobotsService.Solve(input);
+            ////do the actual work here
+            //var martianRobotsService = serviceProvider.GetService<IMartianRobotsApplicationService>();
 
+            //result = martianRobotsService.Solve(input);
+
+            #endregion
+
+            #region API call
+            string ApiURL = "https://localhost:44348/api/MartianRobots/";
+
+            HttpClient httpClient = new HttpClient();
+
+            var response = await httpClient.PostAsJsonAsync<MartianRobotsInputDTO>(ApiURL, input);                       
+
+            if (response.IsSuccessStatusCode)
+            {
+                var stringContent = await response.Content.ReadAsStringAsync();
+                result = JsonConvert.DeserializeObject<List<MartianRobotsOutputDTO>>(stringContent);
+            }
+
+            #endregion
+
+            PrintOutput(result);
+            
+            Console.ReadLine();
+        }
+
+        private static void PrintOutput(List<MartianRobotsOutputDTO> result)
+        {
             foreach (var output in result)
             {
                 Console.WriteLine(output);
             }
-
-            Console.ReadLine();
         }
 
-        private static MartianRobotsInputDTO GetInput()
+        private static MartianRobotsInputDTO GetInputFromConsole()
         {
             MartianRobotsInputDTO input = new ();
 
@@ -62,6 +92,25 @@ namespace MartianRobots.ConsoleApp
             }
 
             return input;
+        }
+
+        private static MartianRobotsInputDTO GetInputFromJsonFile()
+        {
+            try
+            {
+                using (StreamReader r = new StreamReader("../../../input.json"))
+                {
+                    string json = r.ReadToEnd();
+
+                    return JsonConvert.DeserializeObject<MartianRobotsInputDTO>(json);
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("An error has ocurred in the Json file, you can enter the input by console");
+
+               return GetInputFromConsole();
+            }           
         }
     }
 }

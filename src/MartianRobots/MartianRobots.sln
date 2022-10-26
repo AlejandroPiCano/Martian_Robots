@@ -13,19 +13,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{E98BC3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{C7AB2516-79BD-4F6D-BE13-37D98C48E2F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.API", "API\MartianRobots.API\MartianRobots.API.csproj", "{9F0BF1AB-739F-4C56-A3C8-11DB09962D20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartianRobots.API", "API\MartianRobots.API\MartianRobots.API.csproj", "{9F0BF1AB-739F-4C56-A3C8-11DB09962D20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.Application", "Application\MartianRobots.Application\MartianRobots.Application.csproj", "{256A146F-D060-4BA9-B30F-B32F817A2FFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartianRobots.Application", "Application\MartianRobots.Application\MartianRobots.Application.csproj", "{256A146F-D060-4BA9-B30F-B32F817A2FFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.Domain", "Domain\MartianRobots.Domain\MartianRobots.Domain.csproj", "{FB3D5ED0-9F49-40D0-B636-DD50B938B435}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartianRobots.Domain", "Domain\MartianRobots.Domain\MartianRobots.Domain.csproj", "{FB3D5ED0-9F49-40D0-B636-DD50B938B435}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.Infrastructure", "Infrastructure\MartianRobots.Infrastructure\MartianRobots.Infrastructure.csproj", "{320017DB-66B3-440D-B534-080284D3C3C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartianRobots.Infrastructure", "Infrastructure\MartianRobots.Infrastructure\MartianRobots.Infrastructure.csproj", "{320017DB-66B3-440D-B534-080284D3C3C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.Application.DTOs", "Application\MartianRobots.Application.DTOs\MartianRobots.Application.DTOs.csproj", "{2C69949C-1C48-410E-8747-F64541BDB0C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartianRobots.Application.DTOs", "Application\MartianRobots.Application.DTOs\MartianRobots.Application.DTOs.csproj", "{2C69949C-1C48-410E-8747-F64541BDB0C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.Domain.Entities", "Domain\MartianRobots.Domain.Entities\MartianRobots.Domain.Entities.csproj", "{4861667D-F179-40EE-9D68-2CE5C753BBD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartianRobots.Domain.Entities", "Domain\MartianRobots.Domain.Entities\MartianRobots.Domain.Entities.csproj", "{4861667D-F179-40EE-9D68-2CE5C753BBD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.ConsoleApp", "Presentation\MartianRobots.ConsoleApp\MartianRobots.ConsoleApp.csproj", "{65922044-1FA0-4977-A64B-4A316B982938}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartianRobots.ConsoleApp", "Presentation\MartianRobots.ConsoleApp\MartianRobots.ConsoleApp.csproj", "{65922044-1FA0-4977-A64B-4A316B982938}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.API.Tests", "API\MartianRobots.API.Tests\MartianRobots.API.Tests.csproj", "{FF2EA1DB-0DFA-4FDD-8D90-97B18467D557}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{65922044-1FA0-4977-A64B-4A316B982938}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65922044-1FA0-4977-A64B-4A316B982938}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65922044-1FA0-4977-A64B-4A316B982938}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF2EA1DB-0DFA-4FDD-8D90-97B18467D557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF2EA1DB-0DFA-4FDD-8D90-97B18467D557}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF2EA1DB-0DFA-4FDD-8D90-97B18467D557}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF2EA1DB-0DFA-4FDD-8D90-97B18467D557}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{2C69949C-1C48-410E-8747-F64541BDB0C2} = {C7AB2516-79BD-4F6D-BE13-37D98C48E2F6}
 		{4861667D-F179-40EE-9D68-2CE5C753BBD0} = {E98BC318-C819-4E15-8169-D9E688DB2947}
 		{65922044-1FA0-4977-A64B-4A316B982938} = {388D4C0B-2236-450D-A899-DC78DF073C03}
+		{FF2EA1DB-0DFA-4FDD-8D90-97B18467D557} = {5F582F26-A854-4595-9940-876BDAE0F916}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2E231A17-6644-435E-A4E1-601D777ED530}

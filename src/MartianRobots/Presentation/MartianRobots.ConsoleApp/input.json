@@ -1,0 +1,25 @@
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "xSize": 5,
+  "ySize": 3,
+  "robots": [
+    {
+      "initialX": 1,
+      "initialY": 1,
+      "orientation": "E",
+      "instructions": "RFRFRFRF"
+    },
+	 {
+      "initialX": 3,
+      "initialY": 2,
+      "orientation": "N",
+      "instructions": "FRRFLLFFRRFLL"
+    },
+	 {
+      "initialX": 0,
+      "initialY": 3,
+      "orientation": "W",
+      "instructions": "LLFFFRFLFL"
+    },
+  ]
+}
