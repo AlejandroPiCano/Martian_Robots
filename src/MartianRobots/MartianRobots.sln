@@ -26,8 +26,13 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartianRobots.Domain.Entities", "Domain\MartianRobots.Domain.Entities\MartianRobots.Domain.Entities.csproj", "{4861667D-F179-40EE-9D68-2CE5C753BBD0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartianRobots.ConsoleApp", "Presentation\MartianRobots.ConsoleApp\MartianRobots.ConsoleApp.csproj", "{65922044-1FA0-4977-A64B-4A316B982938}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9F0BF1AB-739F-4C56-A3C8-11DB09962D20} = {9F0BF1AB-739F-4C56-A3C8-11DB09962D20}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.API.Tests", "API\MartianRobots.API.Tests\MartianRobots.API.Tests.csproj", "{FF2EA1DB-0DFA-4FDD-8D90-97B18467D557}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.Application.Tests", "Application\MartianRobots.Application.Tests\MartianRobots.Application.Tests.csproj", "{2FCDE246-12A9-4A04-92AA-B5E09D3F9A38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +72,10 @@ Global
 		{FF2EA1DB-0DFA-4FDD-8D90-97B18467D557}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF2EA1DB-0DFA-4FDD-8D90-97B18467D557}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF2EA1DB-0DFA-4FDD-8D90-97B18467D557}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FCDE246-12A9-4A04-92AA-B5E09D3F9A38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FCDE246-12A9-4A04-92AA-B5E09D3F9A38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FCDE246-12A9-4A04-92AA-B5E09D3F9A38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FCDE246-12A9-4A04-92AA-B5E09D3F9A38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +89,7 @@ Global
 		{4861667D-F179-40EE-9D68-2CE5C753BBD0} = {E98BC318-C819-4E15-8169-D9E688DB2947}
 		{65922044-1FA0-4977-A64B-4A316B982938} = {388D4C0B-2236-450D-A899-DC78DF073C03}
 		{FF2EA1DB-0DFA-4FDD-8D90-97B18467D557} = {5F582F26-A854-4595-9940-876BDAE0F916}
+		{2FCDE246-12A9-4A04-92AA-B5E09D3F9A38} = {C7AB2516-79BD-4F6D-BE13-37D98C48E2F6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2E231A17-6644-435E-A4E1-601D777ED530}

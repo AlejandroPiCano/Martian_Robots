@@ -114,6 +114,25 @@ namespace InventoryManager.API.Tests
         }
 
         [Test]
+        [Description("This is a test for the Post method returning ok response")]
+        public async Task MartianRobotsInputController_Post_FailValidation_ReturnValidationError()
+        {
+            //Arrange
+            MartianRobotsInputDTO input1 = JsonConvert.DeserializeObject<MartianRobotsInputDTO>(inputStringCase1);
+            var expectedResult = new ValidationResult();
+            string errorDescription = "Error Description";
+            expectedResult.Errors.Add(new ValidationFailure(string.Empty, errorDescription));
+
+            Mock.Get(mockService).Setup(x => x.CreateAsync(input1)).Returns(Task.Run(() => expectedResult));
+
+            //Act
+            var result = await controller.Post(input1);
+
+            //Assert
+            Assert.AreEqual(result, expectedResult);
+        }
+
+        [Test]
         [Description("This is a test for the Post method throwing an axception and null response")]
         public async Task MartianRobotsInputController_Post_ThrowingException()
         {
