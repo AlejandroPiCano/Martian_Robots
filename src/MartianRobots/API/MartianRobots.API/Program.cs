@@ -5,6 +5,8 @@ using MartianRobots.Application.DTOs.Validators;
 using MartianRobots.Application.Services;
 using MartianRobots.Domain.Entities;
 using MartianRobots.Domain.Repository.Contracts;
+using MartianRobots.Domain.Services;
+using MartianRobots.Domain.Services.Contracts;
 using MartianRobots.Infrastructure;
 using MediatR;
 using Microsoft.Extensions.Configuration;
@@ -34,6 +36,7 @@ builder.Services.AddSingleton<IMongoDBDatabaseSettings>(sp => sp.GetRequiredServ
 builder.Services.AddSingleton<IMongoClient>(s => new MongoClient(builder.Configuration.GetValue<string>("MongoDBDatabaseSettings:ConnectionString")));
 
 // Add Services
+builder.Services.AddScoped<IMartianRobotsDomainService, MartianRobotsDomainService>();
 builder.Services.AddScoped<IMartianRobotsInputApplicationService, MartianRobotsInputApplicationService>();
 builder.Services.AddScoped<IMartianRobotsOutputApplicationService, MartianRobotsOutputApplicationService>();
 builder.Services.AddScoped<IMartianRobotsApplicationService, MartianRobotsApplicationService>();

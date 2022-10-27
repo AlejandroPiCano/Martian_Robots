@@ -1,4 +1,4 @@
-﻿namespace MartianRobots.Application.CommandInstructions
+﻿namespace MartianRobots.Domain.CommandInstructions
 {
     internal class CommandInstructionFactory
     {

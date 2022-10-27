@@ -1,16 +1,12 @@
-﻿using MartianRobots.Application.CommandInstructions;
-using MartianRobots.Application.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace MartianRobots.Application.CommandInstructions
+using MartianRobots.Domain.Entities;
+
+namespace MartianRobots.Domain.CommandInstructions
 {
     public class ForwardCommandInstruction : CommandInstruction
     {
-        public override void Execute(MartianRobotDTO robot)
+        public override void Execute(MartianRobot robot)
         {
             switch (robot.Orientation)
             {
@@ -33,7 +29,7 @@ namespace MartianRobots.Application.CommandInstructions
             }
         }
 
-        public override void UndoExecute(MartianRobotDTO robot)
+        public override void UndoExecute(MartianRobot robot)
         {
             switch (robot.Orientation)
             {
@@ -55,7 +51,5 @@ namespace MartianRobots.Application.CommandInstructions
                     break;
             }
         }
-
-
     }
 }

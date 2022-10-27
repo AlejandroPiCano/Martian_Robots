@@ -18,7 +18,7 @@ namespace MartianRobots.ConsoleApp
             var serviceProvider = new ServiceCollection()
                 .AddScoped<IInputService, JsonInputService>()// Or ConsoleInputService
                 .AddScoped<IOutputService, OutputService>()
-                .AddScoped<ISolveService, APISolveService>()// Or ApplicationLibrarySolveService
+                .AddScoped<ISolveService, APISolveService>()
                 .AddScoped<IOutputSaveService, OutputSaveService>()
                 .AddScoped<IInputSaveService, InputSaveService>()
                 .BuildServiceProvider();
