@@ -37,6 +37,7 @@ namespace MartianRobots.API.Controllers
                 {
                     return service.Solve(value);
                 }
+
             }
             catch (System.Exception e)
             {

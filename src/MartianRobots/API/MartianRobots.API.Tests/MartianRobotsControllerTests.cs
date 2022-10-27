@@ -1,7 +1,9 @@
 using FluentValidation;
 using MartianRobots.API.Controllers;
 using MartianRobots.Application.DTOs;
+using MartianRobots.Application.DTOs.Validators;
 using MartianRobots.Application.Services;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Moq;
 using Newtonsoft.Json;
@@ -19,12 +21,21 @@ namespace MartianRobots.API.Tests
         const string inputStringCase2 = "{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"xSize\": 5,\r\n  \"ySize\": 3,\r\n  \"robots\": [   \r\n\t {\r\n      \"initialX\": 3,\r\n      \"initialY\": 2,\r\n      \"orientation\": \"N\",\r\n      \"instructions\": \"FRRFLLFFRRFLL\"\r\n    }\r\n  ]\r\n}";
         const string inputStringCase3 = "{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"xSize\": 5,\r\n  \"ySize\": 3,\r\n  \"robots\": [    \r\n\t {\r\n      \"initialX\": 0,\r\n      \"initialY\": 3,\r\n      \"orientation\": \"W\",\r\n      \"instructions\": \"LLFFFRFLFL\"\r\n    }\r\n  ]\r\n}";
         const string inputStringAllCases = "{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"xSize\": 5,\r\n  \"ySize\": 3,\r\n  \"robots\": [\r\n    {\r\n      \"initialX\": 1,\r\n      \"initialY\": 1,\r\n      \"orientation\": \"E\",\r\n      \"instructions\": \"RFRFRFRF\"\r\n    },\r\n\t {\r\n      \"initialX\": 3,\r\n      \"initialY\": 2,\r\n      \"orientation\": \"N\",\r\n      \"instructions\": \"FRRFLLFFRRFLL\"\r\n    },\r\n\t {\r\n      \"initialX\": 0,\r\n      \"initialY\": 3,\r\n      \"orientation\": \"W\",\r\n      \"instructions\": \"LLFFFRFLFL\"\r\n    }\r\n  ]\r\n}";
-
+        const string inputErrorOrientation = "{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"xSize\": 5,\r\n  \"ySize\": 3,\r\n  \"robots\": [\r\n    {\r\n      \"initialX\": 1,\r\n      \"initialY\": 1,\r\n      \"orientation\": \"K\",\r\n      \"instructions\": \"RFRFRFRF\"\r\n    }\r\n  ]\r\n}";
+        const string inputErrorInstructions = "{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"xSize\": 5,\r\n  \"ySize\": 3,\r\n  \"robots\": [\r\n    {\r\n      \"initialX\": 1,\r\n      \"initialY\": 1,\r\n      \"orientation\": \"N\",\r\n      \"instructions\": \"RKRRFRF\"\r\n    }\r\n  ]\r\n}";
+        const string inputErrorSize = "{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"xSize\": 5,\r\n  \"ySize\": 3,\r\n  \"robots\": [\r\n    {\r\n      \"initialX\": -1,\r\n      \"initialY\": -1,\r\n      \"orientation\": \"N\",\r\n      \"instructions\": \"RFRRFRF\"\r\n    }\r\n  ]\r\n}";
         [SetUp]
         public void Setup()
         {
+            var serviceProvider = new ServiceCollection()
+              .AddScoped<IValidator<MartianRobotsInputDTO>, MartianRobotsInputDTOValidator>()
+              .BuildServiceProvider();
+
+            var validator = serviceProvider.GetService<IValidator<MartianRobotsInputDTO>>();
+
+
             mockService = Mock.Of<IMartianRobotsApplicationService>();
-            controller = new MartianRobotsController(mockService, Mock.Of<ILogger<MartianRobotsController>>(), Mock.Of<IValidator<MartianRobotsInputDTO>>());
+            controller = new MartianRobotsController(mockService, Mock.Of<ILogger<MartianRobotsController>>(), validator);
         }
 
         [Test]
@@ -86,7 +97,6 @@ namespace MartianRobots.API.Tests
         public void MartianRobotsController_Solve_Case3_ReturnOk()
         {
             //Arrange
-
             MartianRobotsInputDTO input = JsonConvert.DeserializeObject<MartianRobotsInputDTO>(inputStringCase3);
 
             MartianRobotsOutputDTO output = new MartianRobotsOutputDTO()
@@ -153,13 +163,12 @@ namespace MartianRobots.API.Tests
                 Assert.AreEqual(result[i].ToString(), output[i].ToString());
             }
         }
-
+      
         [Test]
         [Description("This is a test for the post method returning throwing an exception and returning an empty list")]
         public void MartianRobotsController_Solve_Case3_ThrowingException()
         {
             //Arrange
-
             MartianRobotsInputDTO input = JsonConvert.DeserializeObject<MartianRobotsInputDTO>(inputStringCase3);
                       
             Mock.Get(mockService).Setup(x => x.Solve(input)).Throws(new System.Exception());
@@ -170,5 +179,65 @@ namespace MartianRobots.API.Tests
             //Assert            
             Assert.AreEqual(result.Count(), 0);
         }
+
+        [Test]
+        [Description("This is a test for the post method with orientation validation error, returning an empty list")]
+        public void MartianRobotsController_Solve_OrientationErrorValidation_ReturnCount0()
+        {
+            //Arrange
+
+            MartianRobotsInputDTO input = JsonConvert.DeserializeObject<MartianRobotsInputDTO>(inputErrorOrientation);
+
+            //Act
+            var result = controller.Post(input);
+
+            //Assert            
+            Assert.AreEqual(result.Count(), 0);
+        }
+
+        [Test]
+        [Description("This is a test for the post method with instructions validation error, returning an empty list")]
+        public void MartianRobotsController_Solve_InstructionsErrorValidation_ReturnCount0()
+        {
+            //Arrange
+
+            MartianRobotsInputDTO input = JsonConvert.DeserializeObject<MartianRobotsInputDTO>(inputErrorInstructions);
+
+            //Act
+            var result = controller.Post(input);
+
+            //Assert            
+            Assert.AreEqual(result.Count(), 0);
+        }
+
+        [Test]
+        [Description("This is a test for the post method with size validation error, returning an empty list")]
+        public void MartianRobotsController_Solve_SizeValidation_ReturnCount0()
+        {
+            //Arrange
+
+            MartianRobotsInputDTO input = JsonConvert.DeserializeObject<MartianRobotsInputDTO>(inputErrorSize);
+
+            //Act
+            var result = controller.Post(input);
+
+            //Assert            
+            Assert.AreEqual(result.Count(), 0);
+        }
+
+        [Test]
+        [Description("This is a test for the post method with null validation error, returning an empty list")]
+        public void MartianRobotsController_Solve_NullValidation_ReturnCount0()
+        {
+            //Arrange
+            MartianRobotsInputDTO input = null;
+
+            //Act
+            var result = controller.Post(input);
+
+            //Assert            
+            Assert.AreEqual(result.Count(), 0);
+        }
+
     }
 }
