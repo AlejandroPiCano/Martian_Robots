@@ -14,7 +14,7 @@ namespace MartianRobots.ConsoleApp.Services
     {
         public async Task CreateAsyncInput(MartianRobotsInputDTO input)
         {
-            string ApiURL = "https://localhost:7147/api/MartianRobotsInput/";
+            string ApiURL = "https://localhost:44348/api/MartianRobotsInput/";
 
             HttpClient httpClient = new HttpClient();
 

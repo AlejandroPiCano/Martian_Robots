@@ -10,16 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
-    <PackageReference Include="FluentValidation" Version="11.2.2" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Application\MartianRobots.Application.Configurations\MartianRobots.Application.Configurations.csproj" />
     <ProjectReference Include="..\..\Application\MartianRobots.Application\MartianRobots.Application.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\MartianRobots.Infrastructure\MartianRobots.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\MartianRobots.Infrastructure.Configurations\MartianRobots.Infrastructure.Configurations.csproj" />
   </ItemGroup>
 
 </Project>

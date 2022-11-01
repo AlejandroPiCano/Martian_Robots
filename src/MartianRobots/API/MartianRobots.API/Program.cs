@@ -1,15 +1,8 @@
 using FluentValidation;
-using MartianRobots.API.Configurations;
-using MartianRobots.Application.DTOs;
-using MartianRobots.Application.DTOs.Validators;
-using MartianRobots.Application.Services;
-using MartianRobots.Domain.Entities;
-using MartianRobots.Domain.Repository.Contracts;
-using MartianRobots.Domain.Services;
+using MartianRobots.Application.Configurations;
 using MartianRobots.Domain.Services.Contracts;
 using MartianRobots.Infrastructure;
-using MediatR;
-using Microsoft.Extensions.Configuration;
+using MartianRobots.Infrastructure.Configurations;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
@@ -21,29 +14,23 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Adding Validations
-builder.Services.AddScoped<IValidator<MartianRobotDTO>, MartianRobotDTOValidator>();
-builder.Services.AddScoped<IValidator<MartianRobotsInputDTO>, MartianRobotsInputDTOValidator>();
-builder.Services.AddScoped<IValidator<MartianRobotsOutputDTO>, MartianRobotsOutputDTOValidator>();
+builder.Services.AddFluentValidationConfiguration();
 
-// Adding Automapper
+// Adding Auto mapper
 builder.Services.AddAutoMapperConfiguration();
 
 //MongoDB
-builder.Services.AddScoped<IRepository<MartianRobotsInput>, MartianRobotInputMongoDBRepository>();
-builder.Services.AddScoped<IRepository<MartianRobotsOutput>, MartianRobotOutputMongoDBRepository>();
-builder.Services.Configure<MongoDBDatabaseSettings>(builder.Configuration.GetSection(nameof(MongoDBDatabaseSettings)));
-builder.Services.AddSingleton<IMongoDBDatabaseSettings>(sp => sp.GetRequiredService<IOptions<MongoDBDatabaseSettings>>().Value);
-builder.Services.AddSingleton<IMongoClient>(s => new MongoClient(builder.Configuration.GetValue<string>("MongoDBDatabaseSettings:ConnectionString")));
+builder.Services.AddMongoDBConfiguration(builder.Configuration.GetSection(nameof(MongoDBDatabaseSettings)), builder.Configuration.GetValue<string>("MongoDBDatabaseSettings:ConnectionString"));
 
-// Add Services
-builder.Services.AddScoped<IMartianRobotsDomainService, MartianRobotsDomainService>();
-builder.Services.AddScoped<IMartianRobotsInputApplicationService, MartianRobotsInputApplicationService>();
-builder.Services.AddScoped<IMartianRobotsOutputApplicationService, MartianRobotsOutputApplicationService>();
-builder.Services.AddScoped<IMartianRobotsApplicationService, MartianRobotsApplicationService>();
+// Add Infrastructure Services
+builder.Services.AddInfrastructureServicesConfiguration();
+
+// Add Application Services
+builder.Services.AddApplicationServicesConfiguration();
 
 // Adding MediatR for Domain Events and Notifications
 var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-builder.Services.AddMediatR(assemblies);
+builder.Services.AddMediatRConfiguration(assemblies);
 
 var app = builder.Build();
 

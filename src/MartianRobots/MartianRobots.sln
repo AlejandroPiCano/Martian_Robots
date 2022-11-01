@@ -30,9 +30,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartianRobots.ConsoleApp", 
 		{9F0BF1AB-739F-4C56-A3C8-11DB09962D20} = {9F0BF1AB-739F-4C56-A3C8-11DB09962D20}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.API.Tests", "API\MartianRobots.API.Tests\MartianRobots.API.Tests.csproj", "{FF2EA1DB-0DFA-4FDD-8D90-97B18467D557}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartianRobots.API.Tests", "API\MartianRobots.API.Tests\MartianRobots.API.Tests.csproj", "{FF2EA1DB-0DFA-4FDD-8D90-97B18467D557}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.Application.Tests", "Application\MartianRobots.Application.Tests\MartianRobots.Application.Tests.csproj", "{2FCDE246-12A9-4A04-92AA-B5E09D3F9A38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartianRobots.Application.Tests", "Application\MartianRobots.Application.Tests\MartianRobots.Application.Tests.csproj", "{2FCDE246-12A9-4A04-92AA-B5E09D3F9A38}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartianRobots.Infrastructure.Configurations", "Infrastructure\MartianRobots.Infrastructure.Configurations\MartianRobots.Infrastructure.Configurations.csproj", "{26EBE2D8-09EC-4D80-B6A5-9B7EB0DEC243}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartianRobots.Application.Configurations", "Application\MartianRobots.Application.Configurations\MartianRobots.Application.Configurations.csproj", "{0B25A961-9EA5-4B73-817C-529325B1D7B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -76,6 +80,14 @@ Global
 		{2FCDE246-12A9-4A04-92AA-B5E09D3F9A38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FCDE246-12A9-4A04-92AA-B5E09D3F9A38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FCDE246-12A9-4A04-92AA-B5E09D3F9A38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26EBE2D8-09EC-4D80-B6A5-9B7EB0DEC243}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26EBE2D8-09EC-4D80-B6A5-9B7EB0DEC243}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26EBE2D8-09EC-4D80-B6A5-9B7EB0DEC243}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26EBE2D8-09EC-4D80-B6A5-9B7EB0DEC243}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B25A961-9EA5-4B73-817C-529325B1D7B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B25A961-9EA5-4B73-817C-529325B1D7B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B25A961-9EA5-4B73-817C-529325B1D7B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B25A961-9EA5-4B73-817C-529325B1D7B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +102,8 @@ Global
 		{65922044-1FA0-4977-A64B-4A316B982938} = {388D4C0B-2236-450D-A899-DC78DF073C03}
 		{FF2EA1DB-0DFA-4FDD-8D90-97B18467D557} = {5F582F26-A854-4595-9940-876BDAE0F916}
 		{2FCDE246-12A9-4A04-92AA-B5E09D3F9A38} = {C7AB2516-79BD-4F6D-BE13-37D98C48E2F6}
+		{26EBE2D8-09EC-4D80-B6A5-9B7EB0DEC243} = {86345EBC-AF84-4EC0-94AB-EE61B0CA8B7C}
+		{0B25A961-9EA5-4B73-817C-529325B1D7B2} = {C7AB2516-79BD-4F6D-BE13-37D98C48E2F6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2E231A17-6644-435E-A4E1-601D777ED530}

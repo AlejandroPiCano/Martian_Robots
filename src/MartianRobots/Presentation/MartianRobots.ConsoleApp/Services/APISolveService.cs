@@ -14,7 +14,7 @@ namespace MartianRobots.ConsoleApp.Services
     {
         public async Task<List<MartianRobotsOutputDTO>> Solve(MartianRobotsInputDTO input)
         {
-            string ApiURL = "https://localhost:7147/api/MartianRobots/";
+            string ApiURL = "https://localhost:44348/api/MartianRobots/";
 
             HttpClient httpClient = new HttpClient();
 

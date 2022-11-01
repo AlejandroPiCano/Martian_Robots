@@ -1,8 +1,9 @@
 ﻿
 using MartianRobots.Application.AutoMapper;
 using MartianRobots.Application.DTOs;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace MartianRobots.API.Configurations
+namespace MartianRobots.Application.Configurations
 {
     /// <summary>
     /// AutoMapperConfig class.
