@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MartianRobots.ConsoleApp.Services.Contracts
 {
-    public interface IInputService
+    internal interface IInputService
     {
         MartianRobotsInputDTO GetInput();
     }

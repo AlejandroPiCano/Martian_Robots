@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MartianRobots.ConsoleApp.Services
 {
-    public class ConsoleInputService : IInputService
+    internal class ConsoleInputService : IInputService
     {
         public MartianRobotsInputDTO GetInput()
         {

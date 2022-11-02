@@ -4,30 +4,43 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http.Headers;
+using System.Net.Http;
 using System.Net.Http.Json;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace MartianRobots.ConsoleApp.Services
 {
-    public class APISolveService : ISolveService
-    {
+    internal class APISolveService : APIService, ISolveService
+    {    
         public async Task<List<MartianRobotsOutputDTO>> Solve(MartianRobotsInputDTO input)
         {
-            string ApiURL = "https://localhost:44348/api/MartianRobots/";
+            string ApiURL = $"https://localhost:{apiPort}/api/MartianRobots/";           
 
-            HttpClient httpClient = new HttpClient();
-
-            var response = await httpClient.PostAsJsonAsync<MartianRobotsInputDTO>(ApiURL, input);
-
-            if (response.IsSuccessStatusCode)
+            using (var httpClient = new HttpClient())
             {
-                var stringContent = await response.Content.ReadAsStringAsync();
+                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                return JsonConvert.DeserializeObject<List<MartianRobotsOutputDTO>>(stringContent);
+                using (var content = new StringContent(JsonConvert.SerializeObject(input), Encoding.Default, "application/json"))
+                {
+                    HttpRequestMessage httpRequestMessage = GetHttpRequestMessage(content, ApiURL);
+
+                    var response = await httpClient.SendAsync(httpRequestMessage);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var stringContent = await response.Content.ReadAsStringAsync();
+
+                        return JsonConvert.DeserializeObject<List<MartianRobotsOutputDTO>>(stringContent);
+                    }
+
+                    return new List<MartianRobotsOutputDTO>();
+                }
             }
-
-            return new List<MartianRobotsOutputDTO>();
         }
     }
 }

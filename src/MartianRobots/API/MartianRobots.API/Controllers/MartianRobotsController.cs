@@ -2,6 +2,7 @@
 using FluentValidation.Results;
 using MartianRobots.Application.DTOs;
 using MartianRobots.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using ValidationResult = FluentValidation.Results.ValidationResult;
@@ -12,6 +13,7 @@ namespace MartianRobots.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class MartianRobotsController : ControllerBase
     {
         private IMartianRobotsApplicationService service;

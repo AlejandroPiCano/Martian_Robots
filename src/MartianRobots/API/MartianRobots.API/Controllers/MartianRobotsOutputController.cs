@@ -1,6 +1,7 @@
 ﻿using FluentValidation.Results;
 using MartianRobots.Application.DTOs;
 using MartianRobots.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MartianRobots.API.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class MartianRobotsOutputController : ControllerBase
     {

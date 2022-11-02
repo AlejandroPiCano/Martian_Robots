@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MartianRobots.ConsoleApp.Services.Contracts
 {
-    public interface ISolveService
+    internal interface ISolveService
     {
         Task<List<MartianRobotsOutputDTO>> Solve(MartianRobotsInputDTO input);
     }
